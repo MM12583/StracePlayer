@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh; /* 設高度 100% 避免重複 */
+  background: linear-gradient(to left top, #ffb30f, #a51080); /* 漸層用法 */
+}
+
+/* 追蹤Object  */
+#strace {
+  width: var(--width);
+  height: var(--height);
+  position: absolute; /* 滑鼠絕對定位 */
+  /* 用 calc(var()* 1px) 換算座標 */
+  /* transform: translate(calc(var(--mouse-X) * 1px), calc(var(--mouse-Y) * 1px)); */
+  /* 校正 Strace 物件位置 */
+  transform: translate(
+    calc(var(--mouse-X) * 1px - var(--width) / 2),
+    calc(var(--mouse-Y) * 1px - var(--height) / 2)
+  );
+}
+
+/* 根目錄選取器 可設 Var (doc 裡的 變數為全域變數 ) */
+:root {
+  --mouse-X: ;
+  --mouse-Y: ;
+  --width: 50px;
+  --height: 50px;
+  --factor: 1;
+  --scale: ;
+}
